@@ -1,5 +1,5 @@
 {
-  "name": "hg-cli",
+  "name": "mhg-cli",
   "version": "1.0.0",
   "description": "hanger‘s cli",
   "bin": {
@@ -7,19 +7,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hamger/hg-cli.git"
+    "url": "https://github.com/hamger/mhg-cli.git"
   },
   "keywords": [
     "hanger",
-    "hg-cli",
+    "mhg-cli",
     "cli"
   ],
   "author": "Hanger",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hamger/hg-cli/issues"
+    "url": "https://github.com/hamger/mhg-cli/issues"
   },
-  "homepage": "https://github.com/hamger/hg-cli",
+  "homepage": "https://github.com/hamger/mhg-cli",
   "dependencies": {
     "chalk": "^2.3.2",
     "cli-table": "^0.3.1",
