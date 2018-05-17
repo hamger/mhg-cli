@@ -1,0 +1,31 @@
+{
+  "name": "hg-cli",
+  "version": "1.0.0",
+  "description": "hanger‘s cli",
+  "bin": {
+    "hg": "./bin/hg.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hamger/hg-cli.git"
+  },
+  "keywords": [
+    "hanger",
+    "hg-cli",
+    "cli"
+  ],
+  "author": "Hanger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hamger/hg-cli/issues"
+  },
+  "homepage": "https://github.com/hamger/hg-cli",
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "cli-table": "^0.3.1",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.15.1",
+    "ora": "^2.0.0"
+  }
+}
