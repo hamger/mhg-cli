@@ -12,7 +12,6 @@ const inquirer = require('inquirer')
 const rm = require('rimraf').sync
 const logger = require('../lib/logger')
 const generate = require('../lib/generate')
-const warnings = require('../lib/warnings')
 
 /**
  * Usage.
@@ -97,17 +96,9 @@ function run() {
   if (template.indexOf('/') === -1) {
     // use official templates
     const officialTemplate = 'github:hamger/mhg-templates#' + template
-    if (template.indexOf('#') !== -1) {
-      downloadAndGenerate(officialTemplate)
-    } else {
-      if (template.indexOf('-2.0') !== -1) {
-        warnings.v2SuffixTemplatesDeprecated(template, inPlace ? '' : name)
-        return
-      }
-      // warnings.v2BranchIsNowDefault(template, inPlace ? '' : name)
-      downloadAndGenerate(officialTemplate)
-    }
+    downloadAndGenerate(officialTemplate)
   } else {
+    // use custom templates
     downloadAndGenerate(template)
   }
 }
