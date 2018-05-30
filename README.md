@@ -29,6 +29,8 @@ Current available templates include:
 
 - [simple](https://github.com/hamger/mhg-templates/tree/simple) - A simple Webpack + babel-loader setup for the develop with ES6.
 
+- [cms](https://github.com/hamger/mhg-templates/tree/cms) - A template of content management system with Vue.js and element.js.
+
 ### Custom Templates
 It's unlikely to make everyone happy with the official templates. You can simply fork an official template and then use it via `hg-cli` with:
 
