@@ -2,39 +2,43 @@
 
 A simple CLI for scaffolding some projects.
 
-### Installation
+## Installation
 
-``` bash
+```bash
 $ npm install -g mhg-cli
 ```
 
-### Usage
+## Usage
 
-``` bash
+```bash
 $ hg init <template-name> <project-name>
 ```
 
 Example:
 
-``` bash
-$ hg init vue my-project
+```bash
+$ hg init pages my-project
 ```
 
-The above command pulls the template from [mhg-templates](https://github.com/hamger/mhg-templates), prompts for some information, and generates the project at `./my-project/`.
+The above command pulls the template from [mhg-templates](https://github.com/hamger/mhg-templates).
 
-### Official Templates
-Current available templates include:
+## Current available templates
 
-- [vue](https://github.com/hamger/mhg-templates/tree/vue) - A full-featured Webpack + vue-loader setup with hot reload, linting, testing & css extraction.
+- [simple](https://github.com/hamger/mhg-templates/tree/simple) - webpack + babel-loader, for developing with ES6.
 
-- [simple](https://github.com/hamger/mhg-templates/tree/simple) - A simple Webpack + babel-loader setup for the develop with ES6.
+- [pages](https://github.com/hamger/mhg-templates/tree/pages) - webpack + babel-loader + eslint + sass, for developing in multiple pages.
+
+- [package](https://github.com/hamger/mhg-templates/tree/package) - webpack + babel-loader + eslint, for developing in javascript package.
+
+- [vue](https://github.com/hamger/mhg-templates/tree/vue) - webpack + vue-loader + vuex + hot reload + linting + testing + css extraction.
 
 - [cms](https://github.com/hamger/mhg-templates/tree/cms) - A template of content management system with Vue.js and element.js.
 
-### Custom Templates
+## Custom Templates
+
 It's unlikely to make everyone happy with the official templates. You can simply fork an official template and then use it via `hg-cli` with:
 
-``` bash
+```bash
 hg init username/repo my-project
 ```
 
