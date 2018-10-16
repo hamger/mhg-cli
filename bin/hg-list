@@ -14,28 +14,42 @@ process.on('exit', () => {
  * List repos.
  */
 
-const templates = [{
-  name: 'simple',
-  description: 'webpack + babel-loader'
-}, {
-  name: 'vue',
-  description: 'webpack + vue + vuex + hot reload + linting + testing + css extraction'
-}, {
-  name: 'pages',
-  description: 'webpack + babel-loader + eslint + sass, for developing in multiple pages'
-}, {
-  name: 'package',
-  description: 'webpack + babel-loader + eslint, for developing in javascript package'
-}, {
-  name: 'cms',
-  description: 'webpack + vue + vuex + element-ui, for content management system'
-}]
+const templates = [
+  {
+    name: 'simple',
+    description: 'A template of ES6 dedevelopment with webpack + babel-loader.'
+  },
+  {
+    name: 'pages',
+    description:
+      'A template of dedevelopment in multiple pages with webpack + babel-loader + eslint + sass.'
+  },
+  {
+    name: 'package',
+    description:
+      'A template of dedevelopment in javascript package with webpack + babel-loader + eslint.'
+  },
+  {
+    name: 'vue',
+    description:
+      'A template of vue with webpack + vue + vuex + hot reload + linting + testing + css extraction.'
+  },
+  {
+    name: 'ele-admin',
+    description:
+      'A template of content management system with vue + element-ui.'
+  }
+]
 
 console.log('  Available official templates:')
 console.log()
 templates.forEach(repo => {
   console.log(
-    '  ' + chalk.yellow('★') +
-    '  ' + chalk.blue(repo.name) +
-    ' - ' + repo.description)
+    '  ' +
+      chalk.yellow('★') +
+      '  ' +
+      chalk.blue(repo.name) +
+      ' - ' +
+      repo.description
+  )
 })

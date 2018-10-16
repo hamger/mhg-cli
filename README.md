@@ -24,15 +24,15 @@ The above command pulls the template from [mhg-templates](https://github.com/ham
 
 ## Current available templates
 
-- [simple](https://github.com/hamger/mhg-templates/tree/simple) - webpack + babel-loader, for developing with ES6.
+- [simple](https://github.com/hamger/mhg-templates/tree/simple) - A template of ES6 dedevelopment with webpack + babel-loader.
 
-- [pages](https://github.com/hamger/mhg-templates/tree/pages) - webpack + babel-loader + eslint + sass, for developing in multiple pages.
+- [pages](https://github.com/hamger/mhg-templates/tree/pages) - A template of dedevelopment in multiple pages with webpack + babel-loader + eslint + sass.
 
-- [package](https://github.com/hamger/mhg-templates/tree/package) - webpack + babel-loader + eslint, for developing in javascript package.
+- [package](https://github.com/hamger/mhg-templates/tree/package) - A template of dedevelopment in javascript package with webpack + babel-loader + eslint.
 
-- [vue](https://github.com/hamger/mhg-templates/tree/vue) - webpack + vue-loader + vuex + hot reload + linting + testing + css extraction.
+- [vue](https://github.com/hamger/mhg-templates/tree/vue) - A template of vue with webpack + vue + vuex + hot reload + linting + testing + css extraction.
 
-- [cms](https://github.com/hamger/mhg-templates/tree/cms) - A template of content management system with Vue.js and element.js.
+- [ele-admin](https://github.com/hamger/mhg-templates/tree/ele-admin) - A template of content management system with vue + element-ui.
 
 ## Custom Templates
 
