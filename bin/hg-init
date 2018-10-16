@@ -41,7 +41,7 @@ program.on('--help', () => {
  * Help.
  */
 
-function help() {
+function help () {
   program.parse(process.argv)
   if (program.args.length < 1) return program.help()
 }
@@ -76,8 +76,8 @@ process.on('exit', () => {
 if (inPlace || exists(to)) {
   inquirer.prompt([{
     type: 'confirm',
-    message: inPlace ?
-      'Generate project in current directory?' : 'Target directory exists. Continue?',
+    message: inPlace
+      ? 'Generate project in current directory?' : 'Target directory exists. Continue?',
     name: 'ok'
   }]).then(answers => {
     if (answers.ok) {
@@ -92,7 +92,7 @@ if (inPlace || exists(to)) {
  * Check, download and generate the project.
  */
 
-function run() {
+function run () {
   if (template.indexOf('/') === -1) {
     // use official templates
     const officialTemplate = 'github:hamger/mhg-templates#' + template
@@ -109,7 +109,7 @@ function run() {
  * @param {String} template
  */
 
-function downloadAndGenerate(template) {
+function downloadAndGenerate (template) {
   const spinner = ora('downloading template')
   spinner.start()
   // Remove if local template exists
