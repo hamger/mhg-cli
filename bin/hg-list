@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-
-const logger = require('../lib/logger')
 const chalk = require('chalk')
 
 /**
@@ -16,12 +14,21 @@ process.on('exit', () => {
  * List repos.
  */
 
-let templates = [{
+const templates = [{
   name: 'simple',
-  description: 'A simple Webpack + babel-loader setup for the develop with ES6.'
+  description: 'webpack + babel-loader'
 }, {
   name: 'vue',
-  description: 'A full-featured Webpack + vue-loader setup with hot reload, linting, testing & css extraction.'
+  description: 'webpack + vue + vuex + hot reload + linting + testing + css extraction'
+}, {
+  name: 'pages',
+  description: 'webpack + babel-loader + eslint + sass, for developing in multiple pages'
+}, {
+  name: 'package',
+  description: 'webpack + babel-loader + eslint, for developing in javascript package'
+}, {
+  name: 'cms',
+  description: 'webpack + vue + vuex + element-ui, for content management system'
 }]
 
 console.log('  Available official templates:')
