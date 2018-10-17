@@ -38,6 +38,11 @@ const templates = [
     name: 'ele-admin',
     description:
       'A template of content management system with vue + element-ui.'
+  },
+  {
+    name: 'react',
+    description:
+      'A template of react with webpack + react + react-router4 + redux + less.'
   }
 ]
 

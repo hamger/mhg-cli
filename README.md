@@ -34,6 +34,8 @@ The above command pulls the template from [mhg-templates](https://github.com/ham
 
 - [ele-admin](https://github.com/hamger/mhg-templates/tree/ele-admin) - A template of content management system with vue + element-ui.
 
+- [react](https://github.com/hamger/mhg-templates/tree/react) - A template of react with webpack + react + react-router4 + redux + less.
+
 ## Custom Templates
 
 It's unlikely to make everyone happy with the official templates. You can simply fork an official template and then use it via `hg-cli` with:
