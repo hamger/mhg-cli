@@ -30,7 +30,7 @@ program.on('--help', () => {
   console.log('  Examples:')
   console.log()
   console.log(chalk.gray('    # create a new project with an official template'))
-  console.log('    $ hg init vue my-project')
+  console.log('    $ hg init simple my-project')
   console.log()
   console.log(chalk.gray('    # create a new project straight from a github template'))
   console.log('    $ hg init username/repo my-project')
@@ -58,7 +58,8 @@ const name = inPlace ? path.relative('../', process.cwd()) : rawName
 const to = path.resolve(rawName || '.')
 const clone = program.clone || false
 
-const tmp = path.join(home, '.vue-templates', template.replace(/[\/:]/g, '-'))
+// create mhg-templates for cache template
+const tmp = path.join(home, '.mhg-templates', template.replace(/[\/:]/g, '-'))
 if (program.offline) {
   console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
   template = tmp

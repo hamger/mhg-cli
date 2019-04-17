@@ -3,9 +3,9 @@
   "version": "1.0.1",
   "description": "A simple CLI for scaffolding some projects.",
   "bin": {
-    "hg": "bin/hg",
-    "hg-init": "bin/hg-init",
-    "hg-list": "bin/hg-list"
+    "hg": "bin/hg.js",
+    "hg-init": "bin/hg-init.js",
+    "hg-list": "bin/hg-list.js"
   },
   "repository": {
     "type": "git",
