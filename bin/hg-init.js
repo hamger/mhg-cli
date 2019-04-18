@@ -54,11 +54,12 @@ help()
 let template = program.args[0]
 const rawName = program.args[1]
 const inPlace = !rawName || rawName === '.'
+// get project-name， if no specified project-name, use current directory
 const name = inPlace ? path.relative('../', process.cwd()) : rawName
 const to = path.resolve(rawName || '.')
 const clone = program.clone || false
 
-// create mhg-templates for cache template
+// 模板存放在用户目录下的 .mhg-templates 文件夹
 const tmp = path.join(home, '.mhg-templates', template.replace(/[\/:]/g, '-'))
 if (program.offline) {
   console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
