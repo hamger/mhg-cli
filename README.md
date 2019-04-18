@@ -47,3 +47,13 @@ hg init username/repo my-project
 Where `username/repo` is the GitHub repo shorthand for your fork.
 
 The shorthand repo notation is passed to [download-git-repo](https://github.com/flipxfx/download-git-repo) so you can also use things like `bitbucket:username/repo` for a Bitbucket repo and `username/repo#branch` for tags or branches.
+
+## Change Log
+
+### 2019/4/18
+
+> v1.1.0 show list via request
+
+### 2018/5/22
+
+> v1.0.1 init project

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 const chalk = require('chalk')
+const request = require('request')
+const logger = require('../lib/logger')
 
 /**
  * Padding.
@@ -14,47 +16,26 @@ process.on('exit', () => {
  * List repos.
  */
 
-const templates = [
-  {
-    name: 'simple',
-    description: 'A template of ES6 dedevelopment with webpack + babel-loader.'
-  },
-  {
-    name: 'pages',
-    description:
-      'A template of dedevelopment in multiple pages with webpack + babel-loader + eslint + sass.'
-  },
-  {
-    name: 'package',
-    description:
-      'A template of dedevelopment in javascript package with webpack + babel-loader + eslint.'
-  },
-  {
-    name: 'vue',
-    description:
-      'A template of vue with webpack + vue + vuex + hot reload + linting + testing + css extraction.'
-  },
-  {
-    name: 'ele-admin',
-    description:
-      'A template of content management system with vue + element-ui.'
-  },
-  {
-    name: 'react',
-    description:
-      'A template of react with webpack + react + react-router4 + redux + less.'
+request({
+  url: 'https://api.github.com/repos/hamger/mhg-templates/contents/templates.json',
+  headers: {
+    'content-type': 'application/json',
+    'User-Agent': 'mhg-cli'
   }
-]
-
-console.log('  Available official templates:')
-console.log()
-templates.forEach(repo => {
-  console.log(
-    '  ' +
-      chalk.yellow('★') +
-      '  ' +
-      chalk.blue(repo.name) +
-      ' - ' +
-      repo.description
-  )
+}, (err, res, body) => {
+  if (err) logger.fatal(err)
+  const content = JSON.parse(new Buffer(JSON.parse(body).content, 'base64').toString())
+  console.log(content)
+  if (Array.isArray(content)) {
+    console.log('  Available official templates:')
+    console.log()
+    content.forEach(repo => {
+      console.log(
+        '  ' + chalk.yellow('★') +
+        '  ' + chalk.blue(repo.name) +
+        ' - ' + repo.description)
+    })
+  } else {
+    console.error(content.message)
+  }
 })
