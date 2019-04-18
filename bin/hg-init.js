@@ -59,7 +59,7 @@ const name = inPlace ? path.relative('../', process.cwd()) : rawName
 const to = path.resolve(rawName || '.')
 const clone = program.clone || false
 
-// 模板存放在用户目录下的 .mhg-templates 文件夹
+// 模板存放在用户目录下的 .mhg-templates 文件夹下，将模板名中的 / 和 : 转化为 -
 const tmp = path.join(home, '.mhg-templates', template.replace(/[\/:]/g, '-'))
 if (program.offline) {
   console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
