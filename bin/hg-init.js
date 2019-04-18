@@ -112,17 +112,27 @@ function run () {
  */
 
 function downloadAndGenerate (template) {
-  const spinner = ora('downloading template')
-  spinner.start()
-  // Remove if local template exists
-  if (exists(tmp)) rm(tmp)
-  download(template, tmp, { clone }, err => {
-    spinner.stop()
-    if (err) logger.fatal('Failed to download repo ' + template + ': ' + err.message.trim())
-    generate(name, tmp, to, err => {
+  if (program.offline) {
+    generate(name, template, to, err => {
       if (err) logger.fatal(err)
       console.log()
       logger.success('Generated "%s".', name)
     })
-  })
+  } else {
+    const spinner = ora('downloading template')
+    spinner.start()
+    // Remove if local template exists
+    if (exists(tmp)) rm(tmp)
+    // clone template in tmp
+    download(template, tmp, { clone }, err => {
+      spinner.stop()
+      if (err) logger.fatal('Failed to download repo ' + template + ': ' + err.message.trim())
+      // generate project in `to` by `tmp`
+      generate(name, tmp, to, err => {
+        if (err) logger.fatal(err)
+        console.log()
+        logger.success('Generated "%s".', name)
+      })
+    })
+  }
 }

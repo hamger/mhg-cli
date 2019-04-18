@@ -52,6 +52,8 @@ The shorthand repo notation is passed to [download-git-repo](https://github.com/
 
 ### 2019.4.18
 
+> v1.1.1 support offline
+
 > v1.1.0 show list via request
 
 ### 2018.5.22
