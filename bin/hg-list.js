@@ -25,7 +25,6 @@ request({
 }, (err, res, body) => {
   if (err) logger.fatal(err)
   const content = JSON.parse(new Buffer(JSON.parse(body).content, 'base64').toString())
-  console.log(content)
   if (Array.isArray(content)) {
     console.log('  Available official templates:')
     console.log()
