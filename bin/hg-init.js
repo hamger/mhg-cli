@@ -14,18 +14,16 @@ const logger = require('../lib/logger')
 const generate = require('../lib/generate')
 
 /**
- * Usage.
+ * Usage
  */
-
 program
   .usage('<template-name> [project-name]')
   .option('-c, --clone', 'use git clone')
   .option('--offline', 'use cached template')
 
 /**
- * Help.
+ * Help
  */
-
 program.on('--help', () => {
   console.log('  Examples:')
   console.log()
@@ -37,10 +35,6 @@ program.on('--help', () => {
   console.log()
 })
 
-/**
- * Help.
- */
-
 function help () {
   program.parse(process.argv)
   if (program.args.length < 1) return program.help()
@@ -48,9 +42,8 @@ function help () {
 help()
 
 /**
- * Settings.
+ * Settings
  */
-
 let template = program.args[0]
 const rawName = program.args[1]
 const inPlace = !rawName || rawName === '.'
@@ -60,22 +53,22 @@ const to = path.resolve(rawName || '.')
 const clone = program.clone || false
 
 // 模板存放在用户目录下的 .mhg-templates 文件夹下，将模板名中的 / 和 : 转化为 -
-const tmp = path.join(home, '.mhg-templates', template.replace(/[\/:]/g, '-'))
+const localTmp = path.join(home, '.mhg-templates', template.replace(/[\/:]/g, '-'))
 if (program.offline) {
-  console.log(`> Use cached template at ${chalk.yellow(tildify(tmp))}`)
-  template = tmp
+  console.log(`> Use cached template at ${chalk.yellow(tildify(localTmp))}`)
+  template = localTmp
 }
 
 /**
- * Padding.
+ * Padding
  */
-
 console.log()
 process.on('exit', () => {
   console.log()
 })
 
 if (inPlace || exists(to)) {
+  // 目标目录为当前目录或者已存在的情况
   inquirer.prompt([{
     type: 'confirm',
     message: inPlace
@@ -93,7 +86,6 @@ if (inPlace || exists(to)) {
 /**
  * Check, download and generate the project.
  */
-
 function run () {
   if (template.indexOf('/') === -1) {
     // use official templates
@@ -110,7 +102,6 @@ function run () {
  *
  * @param {String} template
  */
-
 function downloadAndGenerate (template) {
   if (program.offline) {
     generate(name, template, to, err => {
@@ -122,13 +113,13 @@ function downloadAndGenerate (template) {
     const spinner = ora('downloading template')
     spinner.start()
     // Remove if local template exists
-    if (exists(tmp)) rm(tmp)
-    // clone template in tmp
-    download(template, tmp, { clone }, err => {
+    if (exists(localTmp)) rm(localTmp)
+    // clone template in localTmp
+    download(template, localTmp, { clone }, err => {
       spinner.stop()
       if (err) logger.fatal('Failed to download repo ' + template + ': ' + err.message.trim())
-      // generate project in `to` by `tmp`
-      generate(name, tmp, to, err => {
+      // generate project in `to` by `localTmp`
+      generate(name, localTmp, to, err => {
         if (err) logger.fatal(err)
         console.log()
         logger.success('Generated "%s".', name)

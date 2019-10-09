@@ -6,7 +6,6 @@ const logger = require('../lib/logger')
 /**
  * Padding.
  */
-
 console.log()
 process.on('exit', () => {
   console.log()
@@ -15,7 +14,6 @@ process.on('exit', () => {
 /**
  * List repos.
  */
-
 request({
   url: 'https://api.github.com/repos/hamger/mhg-templates/contents/templates.json',
   headers: {
@@ -24,7 +22,7 @@ request({
   }
 }, (err, res, body) => {
   if (err) logger.fatal(err)
-  const content = JSON.parse(new Buffer(JSON.parse(body).content, 'base64').toString())
+  const content = JSON.parse(Buffer.from(JSON.parse(body).content, 'base64').toString())
   if (Array.isArray(content)) {
     console.log('  Available official templates:')
     console.log()

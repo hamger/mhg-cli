@@ -50,6 +50,10 @@ The shorthand repo notation is passed to [download-git-repo](https://github.com/
 
 ## Change Log
 
+### 2019.10.9
+
+> v1.1.2 use `Buffer.from()` instead `new Buffer()`
+
 ### 2019.4.18
 
 > v1.1.1 support offline
